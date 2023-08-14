@@ -44,10 +44,11 @@ const SIntroText = styled.p`
 const Main = () => {
   return (
     <>
-      <STitle className='main'>Unleashing Polkadot Creative Potential</STitle>
+      <STitle className='main'>Mint Your Own NFT!l</STitle>
       <SIntroText>
-        Whether you&apos;re an artist seeking to venture into the world of NFTs or a marketplace/developer aiming to
-        integrate NFT functionality into your projects, this portal is your one-stop destination
+        You&apos;ve completed the challenges, and now you&apos;re ready to mint
+        your own customized Polkadot BUIDLER NFT! All you need to do is connect
+        your wallet, and add your own custom message to the NFT to make it your own.
       </SIntroText>
     </>
   );

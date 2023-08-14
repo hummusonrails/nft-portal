@@ -36,7 +36,7 @@ const LogoButton = () => (
   <SLogoButton to={routes.homepage}>
     <Logo />
     <SMeridian></SMeridian>
-    <span>NFT Portal</span>
+    <span>Polkadot DevRel NFT Portal</span>
   </SLogoButton>
 );
 
