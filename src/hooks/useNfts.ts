@@ -67,7 +67,7 @@ export const useNfts = (collectionId: string) => {
       try {
         let metadata: NftMetadata[] = [];
 
-        const ownedNftIds = await getOwnedNftIds();
+        const ownedNftIds = await getNftIds();
         if (!ownedNftIds) {
           setNftsMetadata(metadata);
           return;
@@ -105,7 +105,7 @@ export const useNfts = (collectionId: string) => {
         setIsNftDataLoading(false);
       }
     }
-  }, [api, activeAccount, collectionId, getOwnedNftIds]);
+  }, [api, activeAccount, collectionId, getNftIds]);
 
   const getNftMetadata = useCallback(
     async (nftId: string) => {
@@ -115,7 +115,7 @@ export const useNfts = (collectionId: string) => {
         try {
           let metadata: NftMetadata | null = null;
 
-          const ownedNftIds = await getOwnedNftIds();
+          const ownedNftIds = await getNftIds();
           if (!ownedNftIds || !ownedNftIds.includes(nftId)) {
             setNftMetadata(metadata);
             return;
@@ -146,7 +146,7 @@ export const useNfts = (collectionId: string) => {
         }
       }
     },
-    [api, collectionId, getOwnedNftIds],
+    [api, collectionId, getNftIds],
   );
 
   const mintNft = useCallback(
