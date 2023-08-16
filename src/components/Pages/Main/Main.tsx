@@ -44,7 +44,7 @@ const SIntroText = styled.p`
 const Main = () => {
   return (
     <>
-      <STitle className='main'>Mint Your Own NFT!l</STitle>
+      <STitle className='main'>Mint Your Own NFT!</STitle>
       <SIntroText>
         You&apos;ve completed the challenges, and now you&apos;re ready to mint
         your own customized Polkadot BUIDLER NFT! All you need to do is connect
