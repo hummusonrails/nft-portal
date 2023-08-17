@@ -254,23 +254,6 @@ export const CssFontRegularS = css`
 // CSS SNIPPETS - BUTTONS
 export const CssButtonMainStyles = css<CommonStyleProps>`
   height: 48px;
-  color: ${({ theme, disabled }) => (disabled ? theme.textAndIconsDisabled : theme.forcedWhite)};
-  background-color: ${({ theme, disabled }) => (disabled ? theme.fill6 : theme.appliedButtonMain)};
-  ${CssFontRegularM}
-
-  &:hover {
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-    background-color: ${({ theme, disabled }) => (disabled ? theme.fill6 : theme.fill48)};
-  }
-
-  a {
-    text-decoration: none;
-    color: ${({ theme, disabled }) => (disabled ? theme.textAndIconsDisabled : theme.forcedBlack)};
-  }
-`;
-
-export const CssButtonSecondaryStyles = css<CommonStyleProps>`
-  height: 48px;
   color: ${({ theme, disabled }) => (disabled ? theme.textAndIconsTertiary : theme.forcedWhite)};
   background-color: ${({ theme, disabled }) => (disabled ? theme.fill6 : theme.accentsPink)};
   border-radius: 32px;
@@ -291,10 +274,27 @@ export const CssButtonSecondaryStyles = css<CommonStyleProps>`
   }
 `;
 
-export const CssButtonSecondaryKingStyles = css<CommonStyleProps>`
-  ${CssButtonSecondaryStyles}
+export const CssButtonMainKingStyles = css<CommonStyleProps>`
+  ${CssButtonMainStyles}
   height: 64px;
   ${CssFontRegularL}
+`;
+
+export const CssButtonSecondaryStyles = css<CommonStyleProps>`
+  height: 48px;
+  color: ${({ theme, disabled }) => (disabled ? theme.textAndIconsDisabled : theme.forcedWhite)};
+  background-color: ${({ theme, disabled }) => (disabled ? theme.fill6 : theme.appliedButtonMain)};
+  ${CssFontRegularM}
+
+  &:hover {
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+    background-color: ${({ theme, disabled }) => (disabled ? theme.fill6 : theme.fill48)};
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme, disabled }) => (disabled ? theme.textAndIconsDisabled : theme.forcedBlack)};
+  }
 `;
 
 export const CssButtonStrokeStyles = css<CommonStyleProps>`
@@ -322,9 +322,24 @@ export const CssButtonStrokeStyles = css<CommonStyleProps>`
 export const SContentBlockContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  justify-content: center;
+  gap: 20px;
   margin-bottom: 20px;
   padding-bottom: 20px;
+
+  @media ${mediaQueries.tablet} {
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  @media ${mediaQueries.laptop} {
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  @media ${mediaQueries.desktop} {
+    justify-content: normal;
+  }
 `;
 
 export const SContentBlock = styled.div`
@@ -458,12 +473,12 @@ export const SActionButton = styled.button<CommonStyleProps>`
     ${CssButtonMainStyles}
   }
 
-  &.secondary {
-    ${CssButtonSecondaryStyles}
+  &.main-king {
+    ${CssButtonMainKingStyles}
   }
 
-  &.secondary-king {
-    ${CssButtonSecondaryKingStyles}
+  &.secondary {
+    ${CssButtonSecondaryStyles}
   }
 
   &.stroke {
@@ -479,9 +494,18 @@ export const SFormBlock = styled.div`
   margin-bottom: 40px;
 `;
 
+export const SH2 = styled.h2`
+  ${CssFontSemiBoldM}
+`;
+
 export const SPageControls = styled.div`
-  padding-top: 40px;
-  margin-bottom: 40px;
+  max-width: 360px;
+  padding: 40px 0;
+  margin: 0 auto;
+
+  @media ${mediaQueries.tablet} {
+    margin: 0 0 0 auto;
+  }
 `;
 
 export const SInfoRow = styled.div`
@@ -491,5 +515,13 @@ export const SInfoRow = styled.div`
 
   span:first-child {
     color: ${({ theme }) => theme.textAndIconsTertiary};
+  }
+`;
+
+export const SAside = styled.aside`
+  display: none;
+
+  @media ${mediaQueries.tablet} {
+    display: block;
   }
 `;

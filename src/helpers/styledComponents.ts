@@ -2,13 +2,21 @@
 import { Card, Form, FormGroup, FormLabel, Modal } from 'react-bootstrap';
 import { styled } from 'styled-components';
 
-import { CssFormControl } from './reusableStyles.ts';
+import { CssFormControl, mediaQueries } from './reusableStyles.ts';
 
 export const SCard = styled(Card)`
-  width: 340px;
+  width: 360px;
   padding: 8px;
   border: 1px solid ${({ theme }) => theme.appliedSeparator};
   border-radius: 16px;
+
+  @media ${mediaQueries.tablet} {
+    width: 330px;
+  }
+
+  @media ${mediaQueries.laptop} {
+    width: 360px;
+  }
 `;
 
 export const SCardEdit = styled(Card.Subtitle)`
@@ -105,5 +113,13 @@ export const SLabel = styled(FormLabel)`
 
   &.bigger-margin {
     margin-bottom: 24px;
+  }
+`;
+
+export const SImageSelection = styled(SGroup)`
+  display: block;
+
+  @media ${mediaQueries.tablet} {
+    display: none;
   }
 `;
