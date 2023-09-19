@@ -18,9 +18,10 @@ const NftsView = ({ nftsMetadata }: NftsViewProps) => {
     return <>No NFTs found</>;
   }
 
+
   return (
     <SContentBlockContainer>
-      {nftsMetadata.map((nftMetadata) => (
+      {nftsMetadata.reverse().map((nftMetadata) => (
         <Nft key={nftMetadata.id} nftMetadata={nftMetadata} />
       ))}
     </SContentBlockContainer>
