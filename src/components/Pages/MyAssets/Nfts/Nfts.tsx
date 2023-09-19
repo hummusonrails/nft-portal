@@ -21,6 +21,14 @@ const Nfts = () => {
     }
   }, [getNftsMetadata, collectionId]);
 
+  useEffect(() => {
+    setInterval(() => {
+      if (collectionId) {
+        getNftsMetadata();
+      }
+    }, 5000);
+  }, []);
+
   return (
     <>
       <NftsView nftsMetadata={nftsMetadata} />
